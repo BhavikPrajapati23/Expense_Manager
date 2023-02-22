@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Account</title>
+    <%- include('layout/css.ejs') -%>
+</head>
+<body>
+    <%- include('layout/nav.ejs') -%>
+
+    <div class="container justify-content-center align-items-center" style="display: flex;height: 85vh;">
+        <div style="width: 500px;">
+            <h1 class="display-4 mb-4 mt-3 text-center">Edit Transaction</h1>
+            <form action="/transupdate/<%= acid %>/<%= name %>/:category/:amount/:transaction/<%= id %>" method="post">
+                <div class="mb-3">
+                  <label class="form-label">Category</label>
+                  <input type="text" class="form-control" name="category" value="<%= category %>" aria-describedby="emailHelp" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Amount</label>
+                    <input type="text" class="form-control" name="amount" value="<%= amount %>" aria-describedby="emailHelp" required>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="transaction" value="Income" id="income" <% if(transaction == 'Income'){ %>checked <% }%>>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Income
+                    </label>
+                  </div>
+                  <div class="form-check mb-3">
+                    <input class="form-check-input" type="radio" name="transaction" value="Expense" id="expense" 
+                    <% if (transaction == 'Expense') {%>checked<%}%>>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      Expense
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-outline-success">Update</button>
+              </form>
+        </div>
+    </div>
+
+    <%- include('layout/js.ejs') -%>
+</body>
+</html>

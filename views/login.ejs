@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Sign In</title>
+    <%- include('layout/css.ejs') -%>
+</head>
+
+<body>
+    <div class="container justify-content-center align-items-center" style="display: flex;height: 85vh;">
+        <div style="width: 500px;">
+            <h1 class="display-4 mb-4 mt-3 text-center">SignIn</h1>
+            <form action="/home" method="post">
+                <div class="mb-3">
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-control" name="email" aria-describedby="emailHelp" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password" aria-describedby="emailHelp" required>
+                </div>
+                <button type="submit" class="btn btn-outline-success">Submit</button>
+              </form>
+        </div>
+    </div>
+    <%- include('layout/js.ejs') -%>
+</body>
+
+</html>

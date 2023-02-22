@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <%- include('layout/css.ejs') -%>
+</head>
+<body>
+    <%- include('layout/nav.ejs') -%>
+
+    
+    
+    <div class="container mt-3">
+        <h1 class="display-6">Wel Come <%= ses %></h1>
+        
+        <form action="/acadd">
+            <div class="d-grid gap-2 col-9 mx-auto">
+                <button class="btn btn-primary" type="submit">Add Account</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="container mt-5">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Account Name</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+                <% ac.forEach(function(ac){ %>
+                  <tr>
+                    <td><%= ac.name %></td>
+                    <td><a type="submit" class="btn btn-info" href="/edit/<%= ac.name %>/<%= ac.id %>">Edit Account Name</a></td>
+                    <td><a type="submit" class="btn btn-info" href="/transaction/<%= ac.id %>/<%= ac.name %>">Add Transaction</a></td>
+                    <td><a type="submit" class="btn btn-info" href="/delete/<%= ac.name %>/<%= ac.id %>">Delete Account</a></td>
+                  </tr>
+                  <% }); %>
+            </tbody>
+          </table>
+    </div>
+
+    <%- include('layout/js.ejs') -%>
+</body>
+</html>

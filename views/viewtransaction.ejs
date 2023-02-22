@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <%- include('layout/css.ejs') -%>
+</head>
+<body>
+    <%- include('layout/nav.ejs') -%>
+
+    
+    
+    <div class="container mt-3">
+        <h1 class="display-6">Account Name: <%= name %></h1>
+        <h2 class="display-5">Account Id: <%= acid %></h2>
+    </div>
+
+    <div class="container mt-5">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Category</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Transaction Type</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+                <% data.forEach(function(data){ %>
+              <tr>
+                <th scope="row">1</th>
+                <td><%= data.category %></td>
+                <td><%= data.amount %></td>
+                <td><%= data.transaction %></td>
+                <td><a href="/transedit/<%= acid %>/<%= name %>/<%= data.category %>/<%= data.amount %>/<%= data.transaction %>/<%= data._id %>">Edit</a></td>
+                <td><a href="/transedelete/<%= data._id %>">Delete</a></td>
+              </tr>
+              <% }); %>
+            </tbody>
+          </table>
+    </div>
+
+    <%- include('layout/js.ejs') -%>
+</body>
+</html>

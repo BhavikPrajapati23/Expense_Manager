@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Account</title>
+    <%- include('layout/css.ejs') -%>
+</head>
+<body>
+    <%- include('layout/nav.ejs') -%>
+    <!-- <h1 class="display-6">Wel Come <%= ses %></h1> -->
+    <div class="container justify-content-center align-items-center" style="display: flex;height: 85vh;">
+        <div style="width: 500px;">
+            <h1 class="display-4 mb-4 mt-3 text-center">Add Account</h1>
+            <form action="/acadd" method="post">
+                <div class="mb-3">
+                  <label class="form-label">Name</label>
+                  <input type="text" class="form-control" name="name" aria-describedby="emailHelp" required>
+                </div>
+                <button type="submit" class="btn btn-outline-success">Add</button>
+              </form>
+        </div>
+    </div>
+    
+    <%- include('layout/js.ejs') -%>
+</body>
+</html>
